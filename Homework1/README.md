@@ -16,7 +16,7 @@
   * Remove digital
 * Output file:
   * preproccessed_news
-## SVM
+## VSM
 * Some key points:
   * Word segmentation (tokenization)
   * Statistics and calculations: `DF` and `IDF`
