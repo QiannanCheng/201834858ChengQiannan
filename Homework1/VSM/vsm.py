@@ -8,7 +8,7 @@ txt_from: news_class news_id news_vector
 """
 import os
 import six
-import math
+#import math
 import numpy as np
 from tqdm import tqdm
 from nltk.tokenize import word_tokenize
@@ -87,7 +87,7 @@ def cal_tf_norm(news):
             d[w]=tf_norm
         news_tf.append(d)
     return news_tf
-
+'''
 #向量单位化: v/|v|
 def vector_unitization(vec):
     vsum=0.0
@@ -97,7 +97,7 @@ def vector_unitization(vec):
     for i,e in enumerate(vec):
         vec[i]/=vsum
     return vec
-
+'''
 if __name__ == '__main__':
     #得到news_corpus.txt
     #格式：news_class news_id text
@@ -133,7 +133,7 @@ if __name__ == '__main__':
     #计算tf-idf权重/得到news_vertor/向量单位化/保存到news_vector.txt
     vdim=len(word_dict) #向量维数
     print("cal_tf-idf_weights...")
-    print("get_norm_vector("+str(vdim)+"d)...")
+    print("get_news_vector("+str(vdim)+"d)...")
     vec_file=open('news_vector.txt','w')
     for idx,n in enumerate(news_info): #idx:序号 n:值(news_class,news_id)
         vec=[] 
@@ -142,21 +142,10 @@ if __name__ == '__main__':
                 vec.append(news_tf[idx][w]*words_stats[w]['idf']) #计算tf-idf
             else:
                 vec.append(0)
-        norm_vec=vector_unitization(vec) #得到单位向量
-        line=n[0]+'\t'+n[1]+'\t'+' '.join(['%f' % k for k in norm_vec])
+        #norm_vec=vector_unitization(vec) #得到单位向量
+        line=n[0]+'\t'+n[1]+'\t'+' '.join(['%f' % k for k in vec])
         vec_file.write(line+'\n')
     vec_file.close()
     print("vsm finished!")
-        
     
-    
-    
-    
-     
-            
-            
-
-        
-        
-        
     
