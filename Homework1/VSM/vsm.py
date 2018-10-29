@@ -39,7 +39,7 @@ def cal_words_stat(news):
 def word_filter(news,words_stats):
     print("word_filter...")
     words_useless=set()
-    min_freq=2
+    min_freq=5
     max_freq=six.MAXSIZE
     for w,winfo in words_stats.items():
         #filter too frequent words and rare words
