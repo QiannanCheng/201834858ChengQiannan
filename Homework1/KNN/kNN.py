@@ -12,6 +12,7 @@ def autoNorm(dataMat):
     minVals=dataMat.min(0) #每一列的最小值
     maxVals=dataMat.max(0) #每一列的最大值
     ranges=maxVals-minVals #特征值的范围
+    ranges=np.where(ranges>0,ranges,1.0)
     normDataMat=np.zeros(np.shape(dataMat)) #构建一个空矩阵作为归一化后的特征值矩阵
     m=dataMat.shape[0] #矩阵行数
     normDataMat=dataMat-np.tile(minVals,(m,1)) #分子
