@@ -24,7 +24,7 @@
   * Build and save a `dictionary` of all vocabulary
   * Calculate `TF` and  `TF normalization` (sub-linear TF scaling)
   * Calculate `TF-IDF` weights
-  * Construct a VSM representation vector and `unitization`
+  * Construct a VSM representation vector
 * Output file:
   * news_corpus.txt  (format: news_class  news_id  news_content)
   * word_dict.txt  (format: word  DF  IDF)
