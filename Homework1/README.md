@@ -42,6 +42,6 @@
     * file2matrix(filename): Read the news_vertor file as a matrix
     * autoNorm(dataMat): Feature scaling, newValue=(oldValue-min)/(max-min) 
     * knnClassify(vecX,dataMat,labels,k): Return the classification result of a test sample
-    * errorRate(testMat,testLabels,trainMat,trainLabels,k): proportion of errors made over the whole set of instances
+    * errorRate(testMat,testLabels,trainMat,trainLabels,k): Proportion of errors made over the whole set of instances
 * n-fold Cross Validation
   * Use a five-fold cross validation to select an optimal k value and test it on the test data set
