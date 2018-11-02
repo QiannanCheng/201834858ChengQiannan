@@ -20,7 +20,7 @@
 * Some key points:
   * Word segmentation (tokenization)
   * Statistics and calculations: `DF` and `IDF`
-  * Word filter (construct controlled vocabulary): remove `non-information words` and `rare words`
+  * Word filter (construct controlled vocabulary): Remove `non-information words` and `rare words`
   * Build and save a `dictionary` of all vocabulary
   * Calculate `TF` and  `TF normalization` (sub-linear TF scaling)
   * Calculate `TF-IDF` weights
