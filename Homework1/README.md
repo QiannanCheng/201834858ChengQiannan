@@ -26,9 +26,22 @@
   * Calculate `TF-IDF` weights
   * Construct a VSM representation vector and `unitization`
 * Output file:
-  * news_corpus.txt 
-    * format: news_class  news_id  news_content
-  * word_dict.txt 
-    * format: word  DF  IDF
-  * news_vector.txt 
-    * format: news_class  news_id  vector
+  * news_corpus.txt  (format: news_class  news_id  news_content)
+  * word_dict.txt  (format: word  DF  IDF)
+  * news_vector.txt  (format: news_class  news_id  vector)
+## KNN
+* Dividing Data
+  * Total data(18828): Test data(20%_3759), Train data(80%_15069)
+  * Method: Each class takes 20%, merged as a test data set, and the rest as a training data set
+  * Output file:
+    * testData.txt  (format: news_class  news_id  vector)
+    * trainData.txt  (format: news_class  news_id  vector)
+* kNN classifier
+  * Some key functions:
+    * CosSimilarity(vec,Mat): Calculate the cosine similarity between a vector and each row of a matrix
+    * file2matrix(filename): Read the news_vertor file as a matrix
+    * autoNorm(dataMat): Feature scaling, newValue=(oldValue-min)/(max-min) 
+    * knnClassify(vecX,dataMat,labels,k): Return the classification result of a test sample
+    * errorRate(testMat,testLabels,trainMat,trainLabels,k): proportion of errors made over the whole set of instances
+* n-fold Cross Validation
+  * Use a five-fold cross validation to select an optimal k value and test it on the test data set
