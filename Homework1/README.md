@@ -47,5 +47,5 @@
   * Use a five-fold cross validation to select an optimal k value and test it on the test data set
 ## Performance
 ![](https://github.com/QiannanCheng/201834858ChengQiannan/blob/master/Homework1/ResultFigure.png)
-Optimal k: 30
-Error rate on test data: 0.1372
+* Optimal k: 30 <br>
+* Error rate on test data: 0.1372
