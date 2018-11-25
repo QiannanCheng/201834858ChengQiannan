@@ -13,7 +13,7 @@ Divide 20% of news in each class, merge as test data, and the rest as training d
 ## Naive Bayes
 1. 训练<br>
 对训练样本进行统计，得到类cate下单词word出现的次数、每个新闻类中单词总数、训练数据中不重复的单词总数<br>
-2. 计算p(cate_k|doc)：多项式模型+平滑技术+取对数（防止下溢<br>
+2. 计算p(cate_k|doc)：多项式模型+平滑技术+取对数（防止下溢）<br>
 p(word|cate_k)=(类cate_k下单词word出现的次数+1)/(类cate_k下单词总数+训练数据中不重复的单词总数)<br>
 p(cate_k)=类cate_k下单词总数/训练数据中单词总数<br>
 p(cate_k|doc)=p(w1,w2,...,wn|cate_k)*p(cate_k)=Log(p(w1|cate_k))+...+Log(p(wn|cate_k))+Log(p(cate_k))<br>
