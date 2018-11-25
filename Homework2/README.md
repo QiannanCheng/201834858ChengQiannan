@@ -21,3 +21,8 @@ p(cate_k|doc)=p(w1,w2,...,wn|cate_k)*p(cate_k)=Log(p(w1|cate_k))+...+Log(p(wn|ca
 选择p(cate_k)最大的类为每个测试样本的分类结果，记录所有测试样本分类结果<br>
 4. 计算错误率<br>
 ErrorRate=分类错误的样本数/测试样本数
+## 5-Fold Cross Validation
+Divide the data into five parts, select one of them as the test data, and the rest as the training data to calculate the error rate, take the average of the five error rates as the final error rate of the Naive Bayesian Classifier.
+## Performance
+1. Randomly divide data (20% test data, 80% training data)
+2. 5-fold cross validation
