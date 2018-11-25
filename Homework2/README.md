@@ -8,7 +8,7 @@ The methods of preprocessing:<br>
 4. Porter Stemmer<br>
 5. Remove words with cf(Cellection Frequency)<5<br>
 ## Dividing Data
-20% test data and 80% train data.<br>
+20% test data and 80% training data.<br>
 Divide 20% of news in each class, merge as test data, and the rest as training data.<br>
 ## Naive Bayes
 1. 训练<br>
@@ -24,5 +24,8 @@ ErrorRate=分类错误的样本数/测试样本数
 ## 5-Fold Cross Validation
 Divide the data into five parts, select one of them as the test data, and the rest as the training data to calculate the error rate, take the average of the five error rates as the final error rate of the Naive Bayesian Classifier.
 ## Performance
-1. Randomly divide data (20% test data, 80% training data)
+1. Randomly divide data (20% test data, 80% training data)<br>
+ErrorRate=0.175504
 2. 5-fold cross validation
+![](https://github.com/QiannanCheng/201834858ChengQiannan/blob/master/Homework2/Result_Figure/Figure_1.png)
+![](https://github.com/QiannanCheng/201834858ChengQiannan/blob/master/Homework2/Result_Figure/Figure_2.png)
