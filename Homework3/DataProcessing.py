@@ -32,6 +32,5 @@ def getAvailableData(jsonFile):
                                stop_words='english', #词汇表中过滤掉英文停用词
                                use_idf=True) #启动inverse-document-frequency重新计算权重
     X=vectorizer.fit_transform(data) #稀疏矩阵 type:<class 'scipy.sparse.csr.csr_matrix'>
-    X=X.toarray() #type:<class 'numpy.ndarray'>
     return X,labels
 
