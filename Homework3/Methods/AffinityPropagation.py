@@ -10,6 +10,7 @@ from sklearn.cluster import AffinityPropagation
 
 #调用数据处理函数，得到sklearn函数可以直接调用的数据
 X,labels=DataProcessing.getAvailableData("../Tweets.txt")
+X=X.toarray() #type:<class 'numpy.ndarray'>
 
 #定义函数实现AffinityPropagation聚类算法
 # @param X 样本特征数据
