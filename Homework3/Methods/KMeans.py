@@ -10,30 +10,6 @@ from sklearn import metrics
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans, MiniBatchKMeans
 
-#读取json数据文件最终得到：
-#data=['text1','text2',...] <class 'list'>
-#labels=[0 0 1 2 3 1 0 ...] <class 'numpy.ndarray'>
-data=[]
-labels=[]
-with open("../Tweets.txt") as json_data:
-    for line in json_data:
-        tweet=json.loads(line)
-        data.append(tweet["text"])
-        labels.append(tweet["cluster"])
-    labels=np.array(labels)
-true_k=np.unique(labels).shape[0] #cluster的数目
-
-#文本向量化
-#Extracting features from the dataset, using a sparse vectorizer
-#Vectorizer results are normalized
-vectorizer=TfidfVectorizer(max_df=0.5, #词汇表中过滤掉df>(0.5*doc_num)的单词
-                           max_features=3000, #构建词汇表仅考虑max_features(按语料词频排序)
-                           min_df=2, #词汇表中过滤掉df<2的单词
-                           stop_words='english', #词汇表中过滤掉英文停用词
-                           use_idf=True) #启动inverse-document-frequency重新计算权重
-X=vectorizer.fit_transform(data) #shape:[n_samples,n_features] type:<class 'scipy.sparse.csr.csr_matrix'>
-print("n_samples: %d, n_features: %d" % X.shape)
-
 #定义函数实现KMeans聚类算法
 # @param X 数据
 # @param k 簇的数目
@@ -59,22 +35,47 @@ def KMeansAlgorithm(X, k, minibatch):
     y_pred=km.labels_
     return y_pred,km
 
-#调用KMeans聚类函数，得到聚类标签
-pred_labels,km=KMeansAlgorithm(X, true_k, True)
-
-#使用NMI(Normalized Mutual Information)作为评价指标进行评估
-NMI=metrics.normalized_mutual_info_score(labels,pred_labels)
-print("Normalized Mutual Information: %0.3f" % NMI)
-
-#get top terms per cluster
-print("Top terms per cluster:")
-order_centroids=km.cluster_centers_.argsort()[:, ::-1]
-terms = vectorizer.get_feature_names() #向量的每个特征代表的单词(2172d,2172features,2172words)
-for i in range(true_k):
-    print("Cluster %d:" % i, end='')
-    for ind in order_centroids[i, :10]:
-        print(' %s' % terms[ind], end='')
-    print()
+if __name__=='__main__':
+    #读取json数据文件最终得到：
+    #data=['text1','text2',...] <class 'list'>
+    #labels=[0 0 1 2 3 1 0 ...] <class 'numpy.ndarray'>
+    data=[]
+    labels=[]
+    with open("../Tweets.txt") as json_data:
+        for line in json_data:
+            tweet=json.loads(line)
+            data.append(tweet["text"])
+            labels.append(tweet["cluster"])
+        labels=np.array(labels)
+    true_k=np.unique(labels).shape[0] #cluster的数目
+    
+    #文本向量化
+    #Extracting features from the dataset, using a sparse vectorizer
+    #Vectorizer results are normalized
+    vectorizer=TfidfVectorizer(max_df=0.5, #词汇表中过滤掉df>(0.5*doc_num)的单词
+                               max_features=3000, #构建词汇表仅考虑max_features(按语料词频排序)
+                               min_df=2, #词汇表中过滤掉df<2的单词
+                               stop_words='english', #词汇表中过滤掉英文停用词
+                               use_idf=True) #启动inverse-document-frequency重新计算权重
+    X=vectorizer.fit_transform(data) #shape:[n_samples,n_features] type:<class 'scipy.sparse.csr.csr_matrix'>
+    print("n_samples: %d, n_features: %d" % X.shape)
+    
+    #调用KMeans聚类函数，得到聚类标签
+    pred_labels,km=KMeansAlgorithm(X, true_k, True)
+    
+    #使用NMI(Normalized Mutual Information)作为评价指标进行评估
+    NMI=metrics.normalized_mutual_info_score(labels,pred_labels)
+    print("Normalized Mutual Information: %0.3f" % NMI)
+    
+    #get top terms per cluster
+    print("Top terms per cluster:")
+    order_centroids=km.cluster_centers_.argsort()[:, ::-1]
+    terms = vectorizer.get_feature_names() #向量的每个特征代表的单词(2172d,2172features,2172words)
+    for i in range(true_k):
+        print("Cluster %d:" % i, end='')
+        for ind in order_centroids[i, :10]:
+            print(' %s' % terms[ind], end='')
+        print()
 
 
 
