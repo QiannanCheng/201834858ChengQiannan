@@ -18,7 +18,7 @@ true_k=np.unique(labels).shape[0] #cluster的数目
 # @param X 样本特征数据
 # @param k 簇的数目
 # @return y_pred
-def Agglomerative_Clustering(X,k):
+def AgglomerativeClusteringAlgorithm(X,k):
     #参数linkage:  {“ward”, “complete”, “average”, “single”}, optional 
     #average uses the average of the distances of each observation of the two sets.
     #参数n_clusters: int, default=2
@@ -30,7 +30,7 @@ def Agglomerative_Clustering(X,k):
     return y_pred
 
 #调用Agglomerative_Clustering函数，得到聚类标签
-pred_labels=Agglomerative_Clustering(X,true_k)
+pred_labels=AgglomerativeClusteringAlgorithm(X,true_k)
 
 #使用NMI(Normalized Mutual Information)作为评价指标进行评估
 NMI=metrics.normalized_mutual_info_score(labels,pred_labels)

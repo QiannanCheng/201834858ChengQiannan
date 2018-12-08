@@ -18,7 +18,7 @@ true_k=np.unique(labels).shape[0] #cluster的数目
 # @param X 样本特征数据
 # @param k 簇的数目
 # @return y_pred
-def WardHierarchical_Clustering(X,k):
+def WardHierarchicalClusteringAlgorithm(X,k):
     #参数linkage: optional (default=”ward”)
     #ward minimizes the variance of the clusters being merged.
     #参数n_clusters: int, default=2
@@ -30,7 +30,7 @@ def WardHierarchical_Clustering(X,k):
     return y_pred
 
 #调用WardHierarchical_Clustering函数，得到聚类标签
-pred_labels=WardHierarchical_Clustering(X,true_k)
+pred_labels=WardHierarchicalClusteringAlgorithm(X,true_k)
 
 #使用NMI(Normalized Mutual Information)作为评价指标进行评估
 NMI=metrics.normalized_mutual_info_score(labels,pred_labels)

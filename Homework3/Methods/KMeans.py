@@ -42,7 +42,7 @@ print("n_samples: %d, n_features: %d" % X.shape)
 # MinibatchKMeans:
 # Alternative online implementation that does incremental updates of the centers positions using mini-batches. 
 # For large scale learning (say n_samples > 10k) MiniBatchKMeans is probably much faster than the default batch implementation.
-def KMeans_Clustering(X, k, minibatch):
+def KMeansAlgorithm(X, k, minibatch):
     if minibatch:
         km=MiniBatchKMeans(n_clusters=k, #形成的簇数以及生成的中心数
                            init='k-means++', #用智能的方式选择初始聚类中心以加速收敛
@@ -60,7 +60,7 @@ def KMeans_Clustering(X, k, minibatch):
     return y_pred,km
 
 #调用KMeans聚类函数，得到聚类标签
-pred_labels,km=KMeans_Clustering(X, true_k, True)
+pred_labels,km=KMeansAlgorithm(X, true_k, True)
 
 #使用NMI(Normalized Mutual Information)作为评价指标进行评估
 NMI=metrics.normalized_mutual_info_score(labels,pred_labels)

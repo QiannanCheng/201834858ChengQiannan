@@ -18,7 +18,7 @@ true_k=np.unique(labels).shape[0] #cluster的数目
 # @param X 样本特征数据
 # @param k 簇的数目
 # @return y_pred 
-def GaussianMixture_Clustering(X,k):
+def GaussianMixtureAlgorithm(X,k):
     #参数n_components: int, defaults to 1
     #The number of mixture components.
     gm=GaussianMixture(n_components=k)
@@ -27,7 +27,7 @@ def GaussianMixture_Clustering(X,k):
     return y_pred
 
 #调用GaussianMixture_Clustering函数，得到聚类标签
-pred_labels=GaussianMixture_Clustering(X,true_k)
+pred_labels=GaussianMixtureAlgorithm(X,true_k)
 
 #使用NMI(Normalized Mutual Information)作为评价指标进行评估
 NMI=metrics.normalized_mutual_info_score(labels,pred_labels)

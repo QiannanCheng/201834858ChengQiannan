@@ -18,7 +18,7 @@ true_k=np.unique(labels).shape[0] #cluster的数目
 # @param X 样本特征数据
 # @param k 簇的数目
 # @return y_pred 
-def Spectral_Clustering(X,k):
+def SpectralClusteringAlgorithm(X,k):
     #参数n_clusters: integer, optional
     #The dimension of the projection subspace.
     sc=SpectralClustering(n_clusters=k)
@@ -27,7 +27,7 @@ def Spectral_Clustering(X,k):
     return y_pred
 
 #调用Spectral_Clustering函数，得到聚类标签
-pred_labels=Spectral_Clustering(X,true_k)
+pred_labels=SpectralClusteringAlgorithm(X,true_k)
 
 #使用NMI(Normalized Mutual Information)作为评价指标进行评估
 NMI=metrics.normalized_mutual_info_score(labels,pred_labels)

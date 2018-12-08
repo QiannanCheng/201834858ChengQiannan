@@ -15,7 +15,7 @@ X=X.toarray() #type:<class 'numpy.ndarray'>
 #定义函数执行DBSCAN聚类算法
 # @param X 样本特征数据
 # @return y_pred
-def DBSCAN_Clustering(X):
+def DBSCANAlgorithm(X):
     #参数eps: float, optional
     #The maximum distance between two samples for them to be considered as in the same neighborhood.
     #参数min_samples: int, optional
@@ -28,7 +28,7 @@ def DBSCAN_Clustering(X):
     return y_pred
 
 #调用DBSCAN_Clustering函数，得到聚类标签
-pred_labels=DBSCAN_Clustering(X)
+pred_labels=DBSCANAlgorithm(X)
 
 #使用NMI(Normalized Mutual Information)作为评价指标进行评估
 NMI=metrics.normalized_mutual_info_score(labels,pred_labels)

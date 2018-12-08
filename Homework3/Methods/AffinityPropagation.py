@@ -15,7 +15,7 @@ X=X.toarray() #type:<class 'numpy.ndarray'>
 #定义函数实现AffinityPropagation聚类算法
 # @param X 样本特征数据
 # @return y_pred 
-def AffinityPropagation_Clustering(X):
+def AffinityPropagationAlgorithm(X):
     #参数damping: float, optional, default: 0.5
     #Damping factor (between 0.5 and 1) is the extent to which the current value is maintained relative to incoming values (weighted 1 - damping). 
     #This in order to avoid numerical oscillations when updating these values (messages).
@@ -28,7 +28,7 @@ def AffinityPropagation_Clustering(X):
     return y_pred
 
 #调用AffinityPropagation聚类函数，得到聚类标签
-pred_labels=AffinityPropagation_Clustering(X)
+pred_labels=AffinityPropagationAlgorithm(X)
 
 #使用NMI(Normalized Mutual Information)作为评价指标进行评估
 NMI=metrics.normalized_mutual_info_score(labels,pred_labels)
