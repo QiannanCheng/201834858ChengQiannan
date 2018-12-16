@@ -60,7 +60,7 @@ if __name__=='__main__':
     X=vectorizer.fit_transform(data) #shape:[n_samples,n_features] type:<class 'scipy.sparse.csr.csr_matrix'>
     print("n_samples: %d, n_features: %d" % X.shape)
     
-    #调用KMeans聚类函数，得到聚类标签
+    #调用KMeansAlgorithm聚类函数，得到聚类标签
     pred_labels,km=KMeansAlgorithm(X, true_k, True)
     
     #使用NMI(Normalized Mutual Information)作为评价指标进行评估

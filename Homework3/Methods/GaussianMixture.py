@@ -27,7 +27,7 @@ if __name__=='__main__':
     X=X.toarray() #type:<class 'numpy.ndarray'>
     true_k=np.unique(labels).shape[0] #cluster的数目
     
-    #调用GaussianMixture_Clustering函数，得到聚类标签
+    #调用GaussianMixtureAlgorithm函数，得到聚类标签
     pred_labels=GaussianMixtureAlgorithm(X,true_k)
     
     #使用NMI(Normalized Mutual Information)作为评价指标进行评估

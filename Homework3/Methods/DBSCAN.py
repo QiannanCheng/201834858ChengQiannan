@@ -18,7 +18,8 @@ def DBSCANAlgorithm(X):
     #The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. 
     #This includes the point itself.
     ds=DBSCAN(eps=0.5,
-              min_samples=5)
+              min_samples=1,
+              metric='cosine')
     ds.fit(X)
     y_pred=ds.labels_
     return y_pred
@@ -28,7 +29,7 @@ if __name__=='__main__':
     X,labels=DataProcessing.getAvailableData("../Tweets.txt")
     X=X.toarray() #type:<class 'numpy.ndarray'>
     
-    #调用DBSCAN_Clustering函数，得到聚类标签
+    #调用DBSCANAlgorithm函数，得到聚类标签
     pred_labels=DBSCANAlgorithm(X)
     
     #使用NMI(Normalized Mutual Information)作为评价指标进行评估

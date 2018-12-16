@@ -28,7 +28,7 @@ if __name__=='__main__':
     X,labels=DataProcessing.getAvailableData("../Tweets.txt")
     X=X.toarray() #type:<class 'numpy.ndarray'>
     
-    #调用AffinityPropagation聚类函数，得到聚类标签
+    #调用AffinityPropagationAlgorithm聚类函数，得到聚类标签
     pred_labels=AffinityPropagationAlgorithm(X)
     
     #使用NMI(Normalized Mutual Information)作为评价指标进行评估

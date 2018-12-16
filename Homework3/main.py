@@ -40,10 +40,7 @@ for ClusteringAlgorithm in ClusteringAlgorithmList:
         pred_labels=eval(ClusteringFunc)(X)
     #使用NMI(Normalized Mutual Information)作为评价指标进行评估
     NMI=metrics.normalized_mutual_info_score(labels,pred_labels)
-    if NMI<0:
-        NMI=float('%.8f' % NMI)
-    else:
-        NMI=float('%.3f' % NMI)
+    NMI=float('%.3f' % NMI)
     EvaluationList.append(NMI)
 
 #绘制条形图，直观比较8种聚类算法的效果
@@ -51,7 +48,7 @@ plt.bar(range(8),EvaluationList,align='center',color='steelblue',alpha =0.8)
 plt.ylabel('NMI') #添加y轴标签
 plt.title('Comparing about eight clustering algorithms') #添加标题
 plt.xticks(range(8),ClusteringAlgorithmList) #添加x轴刻度标签
-plt.ylim([-0.05,1]) #设置y轴刻度范围
+plt.ylim([0,1]) #设置y轴刻度范围
 for x,y in enumerate(EvaluationList):
     plt.text(x,y+0.02,'%s' % y,ha='center')
 plt.show()
