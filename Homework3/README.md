@@ -11,9 +11,9 @@ in sklearn module can call directly.<br>
                                stop_words='english', # Remove english stopwords 
                                use_idf=True)         # Recalculate the weights using inverse-document-frequency
     X=vectorizer.fit_transform(data) # Return sparse matrix
-## Clustering Algorithm
+## Clustering Algorithms
 ![](https://github.com/QiannanCheng/201834858ChengQiannan/blob/master/Homework3/Pictures/ClusteringAlgorithm.png)
-* Use above clustering algorithm in sklearn to cluster on the tweets dataset.<br>
+* Use above clustering algorithms in sklearn to cluster on the tweets dataset.<br>
 * Use NMI (Normalized Mutual Information) as the evaluation index to evaluate the clustering effect.<br>
   * K-Means: 0.708
   * Affinity Propagation: 0.787
@@ -24,3 +24,7 @@ in sklearn module can call directly.<br>
   * DBSCAN: 0.777
   * Gaussian Mixture: 0.789
 ## Compare, Plot and Sort
+Using NMI as an evaluation index to compare the clustering effects of eight clustering algorithms on Tweets datasets.
+##### 1. Plot a bar chart to visually compare the effects of 8 clustering algorithms.
+
+
