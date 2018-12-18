@@ -26,5 +26,6 @@ in sklearn module can call directly.<br>
 ## Compare, Plot and Sort
 Using NMI as an evaluation index to compare the clustering effects of eight clustering algorithms on Tweets datasets.
 ##### 1. Plot a bar chart to visually compare the effects of 8 clustering algorithms.
-
-
+![](https://github.com/QiannanCheng/201834858ChengQiannan/blob/master/Homework3/Pictures/BarChart.png)
+##### 2. Sorting clustering algorithm based on NMI score.
+![](https://github.com/QiannanCheng/201834858ChengQiannan/blob/master/Homework3/Pictures/SortedNMI.png)
